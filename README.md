@@ -4,8 +4,6 @@
 **Fecha:** 25/11/2025
 **Curso:** Docker & Kubernetes - i-Quattro
 
-> **Nota:** Este README debe describir cada parte con evidencias y comentarios en Markdown; recuerda que la documentación representa el 20% de la nota final.
-
 ## Links de Docker Hub
 - Backend v2.1: https://hub.docker.com/repository/docker/bernalconde/springboot-api/tags
 - Frontend v2.2: https://hub.docker.com/repository/docker/bernalconde/angular-frontend/tags
@@ -21,12 +19,19 @@
 - Rango MetalLB: 192.168.1.240-192.168.1.250
 
 ### Screenshots
+*microk8s instalado con addons habilitados*
 ![microk8s status](screenshots/parte1-1-microk8s_status.png)
+*Proyecto v2.0 funcionando en el cluster*
 ![cluster status](screenshots/parte1-2-status_cluster.png)
+*frontend Angular*
 ![Frontend via MetalLB](screenshots/parte1-3-frontend.png)
+*JSON con el saludo*
 ![JSON con el saludo](screenshots/parte1-4-greeting.png)
+*lista de usuarios*
 ![users](screenshots/parte1-5-users.png)
+*Heatlh*
 ![health](screenshots/parte1-6-health.png)
+*Hostname*
 ![hostname](screenshots/parte1-7-ambiente.png)
 
 ## Parte 2: Backend v2.1
@@ -40,7 +45,7 @@ import org.springframework.http.ResponseEntity;
 @GetMapping("/api/info")
 public ResponseEntity<Map<String, Object>> getInfo() {
     Map<String, Object> info = new HashMap<>();
-    info.put("alumno", "TU NOMBRE COMPLETO");
+    info.put("alumno", "FELIX ENRIQUE BERNAL CONDE");
     info.put("version", "v2.1");
     info.put("curso", "Docker & Kubernetes - i-Quattro");
     info.put("timestamp", LocalDateTime.now().toString());
@@ -50,12 +55,18 @@ public ResponseEntity<Map<String, Object>> getInfo() {
 ```
 
 ### Screenshots
+*Código del endpoint agregado*
 ![code endpoint](screenshots/parte2-1-add_endpoint.png)
+*docker images*
 ![docker images](screenshots/parte2-2-docker_images.png)
+*Docker Hub*
 ![docker hub](screenshots/parte2-3-docker_hub.png)
+*kubectl rollout status durante la actualización*
 ![Rollout](screenshots/parte2-4-rollout.png)
 ![Rollout](screenshots/parte2-5-rollout.png)
+*kubectl get pods*
 ![pods](screenshots/parte2-6-pods.png)
+*output*
 ![API Info](screenshots/parte2-7-curl_info.png)
 
 **Nota:** Se presento un error durante el rollout debido a una mala configuracion en la adicion de un nuevo endpoint, se adiciono el nuevo endpoint a la misma ruta. Una vez corregido el error se procedio a repetir el ciclo de construcion y despliegue.
@@ -64,11 +75,17 @@ public ResponseEntity<Map<String, Object>> getInfo() {
 Se procedio con la adicion de un boton que permite desplegar informacion del sistema.
 
 ### Screenshots
+*appcomponent.html*
 ![appcomponent html](screenshots/parte3-1-mod_html.png)
+*appcomponent.ts*
 ![appcomponent ts](screenshots/parte3-2-mod_ts.png)
+*Docker Hub*
 ![docker hub](screenshots/parte3-3-docker_hub.png)
+*kubectl get pods*
 ![pods](screenshots/parte3-4-rollout.png)
+*botón "Ver Info del Sistema"*
 ![boton](screenshots/parte3-6-boton.png)
+*información*
 ![informacion](screenshots/parte3-7-inf_system.png)
 
 ## Parte 4: Gestión de Versiones
@@ -76,19 +93,20 @@ Se procedio con la adicion de un boton que permite desplegar informacion del sis
 ### ¿Qué hace kubectl rollout undo?
 Permite la vuelta atras teniendo como puntos de referencias cada deploy realizado con exito.
 
-### Screenshots
-![Rollback](screenshots/parte4-rollback.png)
-![Rollforward](screenshots/parte4-rollforward.png)
-
 ## Parte 5: Ingress + MetalLB
 
 **IP del Ingress:** [192.168.1.240]
 
 ### Screenshots
+*MetalLB*
 ![metallb](screenshots/parte5-3-metallb.png)
+*frontend*
 ![frontend](screenshots/parte5-4-frontend.png)
+*curl a /api/users y /api/greeting*
 ![users greeting](screenshots/parte5-5-users_greeting.png)
+*curl a /api/info*
 ![info](screenshots/parte5-6--info.png)
+*curl a /actuator/health*
 ![health](screenshots/parte6-7-health.png)
 
 ## Conclusiones
